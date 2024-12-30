@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tim Robotika Umrah</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Ganti dengan API Key yang valid -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map Example</title>
+  <!-- Leaflet CSS -->
+   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* Atur tinggi elemen peta agar terlihat */
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Tim Robotika Umrah</h1>
-        <nav>
-            <ul>
-                <li><a href="#pengenalan">Pengenalan</a></li>
-                <li><a href="#visi-misi">Visi & Misi</a></li>
-                <li><a href="#sejarah">Sejarah Lomba</a></li>
-                <li><a href="#anggota">Anggota Tim</a></li>
-                <li><a href="#map">Lokasi</a></li>
-            </ul>
-        </nav>
-    </header>
+    <img class="satu" src ="image/gambar1.png" alt="">
+<img class="dua" src="image/gambar2.png" alt="">
+  <h1>My Leaflet Map</h1>
+  <!-- Elemen untuk peta -->
+  <div id="map"></div>
 
-    <section id="pengenalan">
-        <h2>Pengenalan Tentang Organisasi</h2>
-        <p>Tim Robotika Umrah adalah sebuah organisasi yang berfokus pada pengembangan teknologi robotika dan partisipasi dalam kompetisi robot tingkat nasional dan internasional.</p>
-    </section>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Inisialisasi peta
+    const key = 'dT3ELg9enZMqzr6cy0Zu';
+      const map = L.map('map').setView([0.9575904, 104.4401595,715], 14); //starting position
+      L.tileLayer(`https://api.maptiler.com/tiles/satellite-v2/{z}/{x}/{y}.jpg?key=${key}`,{ //style URL
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 1,
+        attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+        crossOrigin: true
+      }).addTo(map);
 
-    <section id="visi-misi">
-        <h2>Visi & Misi</h2>
-        <h3>Visi</h3>
-        <p>Menjadi tim robotika terkemuka yang berkontribusi dalam pengembangan teknologi robotika di Indonesia.</p>
-        <h3>Misi</h3>
-        <ul>
-            <li>Mengembangkan kemampuan anggota tim dalam bidang robotika.</li>
-            <li>Berpartisipasi aktif dalam lomba robotika tingkat nasional dan internasional.</li>
-            <li>Berinovasi dalam desain dan teknologi robot untuk mencapai tujuan yang lebih besar.</li>
-        </ul>
-    </section>
+    // Tambahkan marker ke lokasi tertentu
+    var marker = L.marker([0.9575904, 104.4401595,715]).addTo(map);
+    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
-    <section id="sejarah">
-        <h2>Sejarah Lomba</h2>
-        <p>Tim Robotika Umrah telah berpartisipasi dalam berbagai kompetisi robotika sejak tahun 2020, dan telah meraih beberapa penghargaan penting dalam kompetisi tingkat nasional.</p>
-    </section>
+    // Tambahkan lingkaran di peta
+    var circle = L.circle([51.508, -0.11], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+    }).addTo(map);
+    circle.bindPopup("I am a circle.");
 
-    <section id="anggota">
-        <h2>Anggota Tim</h2>
-        <ul>
-            <li>Nama: John Doe - Ketua Tim</li>
-            <li>Nama: Jane Smith - Anggota</li>
-            <li>Nama: Alex Brown - Anggota</li>
-            <li>Nama: Sarah Lee - Anggota</li>
-        </ul>
-    </section>
+    // Tambahkan poligon di peta
+    var polygon = L.polygon([
+      [51.509, -0.08],
+      [51.503, -0.06],
+      [51.51, -0.047]
+    ]).addTo(map);
+    polygon.bindPopup("I am a polygon.");
 
-    <section id="map">
-        <h2>Lokasi Kami</h2>
-        <div id="google-map" style="width: 100%; height: 400px;"></div>
-    </section>
+    function print() {
+        console.log ("Test");
+    }
 
-    <footer>
-        <p>&copy; 2024 Tim Robotika Umrah</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+    setInterval(print, 1000);
+  </script>
 </body>
 </html>
