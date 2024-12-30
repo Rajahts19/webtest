@@ -59,6 +59,11 @@
         .content {
             text-align: center;
         }
+
+        .map {
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
@@ -100,10 +105,26 @@
         <h2>Hubungi Kami</h2>
         <p>Email: <a href="mailto:robotics@example.com">robotics@example.com</a></p>
         <p>Telepon: +62 123 4567 890</p>
+        <div id="map" class="map"></div>
     </section>
 
     <footer>
         <p>&copy; 2024 Komunitas Robotika. All rights reserved.</p>
     </footer>
+
+    <script>
+        function initMap() {
+            const location = { lat: -6.200000, lng: 106.816666 };
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: location
+            });
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
