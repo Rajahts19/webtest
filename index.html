@@ -3,128 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengenalan Robotika</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #0078D7;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        nav {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #0078D7;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .content img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .map {
-            width: 100%;
-            height: 400px;
-        }
-    </style>
+    <title>Tim Robotika Umrah</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
 </head>
 <body>
     <header>
-        <h1>Selamat Datang di Dunia Robotika</h1>
+        <h1>Tim Robotika Umrah</h1>
+        <nav>
+            <ul>
+                <li><a href="#pengenalan">Pengenalan</a></li>
+                <li><a href="#visi-misi">Visi & Misi</a></li>
+                <li><a href="#sejarah">Sejarah Lomba</a></li>
+                <li><a href="#anggota">Anggota Tim</a></li>
+                <li><a href="#map">Lokasi</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">Tentang Robotika</a>
-        <a href="#projects">Proyek Robotika</a>
-        <a href="#contact">Hubungi Kami</a>
-    </nav>
-
-    <section id="home">
-        <h2>Home</h2>
-        <div class="content">
-            <p>Robotika adalah cabang ilmu yang menggabungkan teknologi, mekanik, dan elektronik untuk menciptakan mesin otomatis yang membantu manusia.</p>
-            <img src="https://via.placeholder.com/800x400" alt="Ilustrasi Robot">
-        </div>
+    <section id="pengenalan">
+        <h2>Pengenalan Tentang Organisasi</h2>
+        <p>Tim Robotika Umrah adalah sebuah organisasi yang berfokus pada pengembangan teknologi robotika dan partisipasi dalam kompetisi robot tingkat nasional dan internasional.</p>
     </section>
 
-    <section id="about">
-        <h2>Tentang Robotika</h2>
-        <p>Robotika melibatkan berbagai disiplin ilmu seperti pemrograman, desain mekanis, dan kecerdasan buatan. Dengan robotika, kita dapat menciptakan solusi inovatif untuk tantangan di berbagai bidang, termasuk industri, kesehatan, dan eksplorasi luar angkasa.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Proyek Robotika</h2>
+    <section id="visi-misi">
+        <h2>Visi & Misi</h2>
+        <h3>Visi</h3>
+        <p>Menjadi tim robotika terkemuka yang berkontribusi dalam pengembangan teknologi robotika di Indonesia.</p>
+        <h3>Misi</h3>
         <ul>
-            <li>Robot Line Follower</li>
-            <li>Robot Humanoid</li>
-            <li>Drone Autonomous</li>
-            <li>Robot Lengan Manipulator</li>
+            <li>Mengembangkan kemampuan anggota tim dalam bidang robotika.</li>
+            <li>Berpartisipasi aktif dalam lomba robotika tingkat nasional dan internasional.</li>
+            <li>Berinovasi dalam desain dan teknologi robot untuk mencapai tujuan yang lebih besar.</li>
         </ul>
     </section>
 
-    <section id="contact">
-        <h2>Hubungi Kami</h2>
-        <p>Email: <a href="mailto:robotics@example.com">robotics@example.com</a></p>
-        <p>Telepon: +62 123 4567 890</p>
-        <div id="map" class="map"></div>
+    <section id="sejarah">
+        <h2>Sejarah Lomba</h2>
+        <p>Tim Robotika Umrah telah berpartisipasi dalam berbagai kompetisi robotika sejak tahun 2020, dan telah meraih beberapa penghargaan penting dalam kompetisi tingkat nasional.</p>
+    </section>
+
+    <section id="anggota">
+        <h2>Anggota Tim</h2>
+        <ul>
+            <li>Nama: John Doe - Ketua Tim</li>
+            <li>Nama: Jane Smith - Anggota</li>
+            <li>Nama: Alex Brown - Anggota</li>
+            <li>Nama: Sarah Lee - Anggota</li>
+        </ul>
+    </section>
+
+    <section id="map">
+        <h2>Lokasi Kami</h2>
+        <div id="google-map"></div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Komunitas Robotika. All rights reserved.</p>
+        <p>&copy; 2024 Tim Robotika Umrah</p>
     </footer>
 
-    <script>
-        function initMap() {
-            const location = { lat: -6.200000, lng: 106.816666 };
-            const map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: location
-            });
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
